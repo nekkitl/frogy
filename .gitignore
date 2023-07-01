@@ -2,5 +2,5 @@
 /dnscan/*
 dnscan
 output
-
+*.txtls
 *.DS_Store

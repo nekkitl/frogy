@@ -1,4 +1,5 @@
 #!/bin/bash
+export HOMEBREW_NO_ENV_HINTS=true
 echo -e "
            .,;::::,..      ......      .,:llllc;'.
         .cxdolcccloddl;:looooddooool::xxdlc:::clddl.
@@ -28,7 +29,7 @@ fi
 echo "Updating brew..."
 brew update > /dev/null
 echo "Installing tools..."
-brew install httpx subfinder dnsx katana findomain python@3.11 jd go unzip whois libpcap 2> /dev/null
+brew install httpx subfinder dnsx katana findomain python@3.11 jq go unzip whois libpcap 2> /dev/null
 echo "Cleanup cache..."
 brew cleanup 2>/dev/null
 echo "Installing requirements..."
