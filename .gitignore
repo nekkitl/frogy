@@ -1,1 +1,6 @@
+/output/*
+/dnscan/*
+dnscan
+output
+
 *.DS_Store
