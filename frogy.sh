@@ -1,5 +1,5 @@
 #!/bin/bash
-set -l FROGY_FORK_VER '0.0.1'
+set FROGY_FORK_VER '0.0.1'
 
 echo -e "Frogy - macOS version $FROGY_FORK_VER by nekkitl"
 echo -e "
