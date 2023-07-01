@@ -76,8 +76,8 @@ Logo credit - [www.designevo.com](http://designevo.com)
 ![Viewers](https://profile-counter.glitch.me/nekkitl/count.svg)
 
 `nekkitl` a.k.a. **Nick Ognev**, 2023q3
-Read before all: [Warning / Disclaimer](https://nekkit.xyz/Disclaimer.html)
-[Multilink](https://me.nekkit.xyz) my to other media
+* Read before all: [Warning / Disclaimer](https://nekkit.xyz/Disclaimer.html)
+* [Multilink](https://me.nekkit.xyz) my to other media
 
 #### More for macOS:
 
