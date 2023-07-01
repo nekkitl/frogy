@@ -29,7 +29,7 @@ fi
 echo "Updating brew..."
 brew update > /dev/null
 echo "Installing tools..."
-brew install httpx subfinder dnsx katana findomain python@3.11 jq go unzip whois libpcap 2> /dev/null
+brew install httpx subfinder dnsx katana findomain python@3.11 jq go unzip whois libpcap gnu-sed 2> /dev/null
 echo "Cleanup cache..."
 brew cleanup 2>/dev/null
 echo "Installing requirements..."
@@ -37,8 +37,7 @@ python3 -m pip install --upgrade pip 2>/dev/null
 git clone https://github.com/rbsec/dnscan.git 2>/dev/null 
 pip -qq install -r dnscan/requirements.txt 2>/dev/null 
 chmod +x frogy.sh
-echo "Installing supply libs..."
-echo "Please, enter user password..."
+echo "Enter user password to install supply libs..."
 for tool in {amass,anew,waybackurls,unfurl}
 do
     sudo cp ./libs/$tool/$tool /usr/local/bin/$tool

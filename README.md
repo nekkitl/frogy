@@ -1,9 +1,9 @@
 <h1 align="center">
-  <a href="https://github.com/nekkitl/frogy"><img src="https://user-images.githubusercontent.com/8291014/148647453-9328388b-1d04-4f76-99f4-c1f8d6aa8929.jpg" alt="frogy" height=230px></a>
+  <a href="https://github.com/nekkitl/frogy"><img src="/libs/logo.png" alt="frogy" height=230px></a>
 
   </h1>
 <h4 align="center"> Made from 🇮🇳, forked by 🇷🇺 with ❤️</h4>
-My goal is to create an open-source Attack Surface Management solution and make it capable to find all the IPs, domains, subdomains, live websites, login portals for one company. <br/><br/>
+My goal is to create an open-source Attack Surface Management solution and make it capable to find all the IPs, domains, subdomains, live websites, login portals for one company.  <br/><p style="font-size:10px; color: #555">Original text from src-git</p>
 
 ---
 
@@ -76,8 +76,9 @@ Logo credit - [www.designevo.com](http://designevo.com)
 ![Viewers](https://profile-counter.glitch.me/nekkitl/count.svg)
 
 `nekkitl` a.k.a. **Nick Ognev**, 2023q3
-* Read before all: [Warning / Disclaimer](https://nekkit.xyz/Disclaimer.html)
-* [Multilink](https://me.nekkit.xyz) my to other media
+
+- Read before all: [Warning / Disclaimer](https://nekkit.xyz/Disclaimer.html)
+- [Multilink](https://me.nekkit.xyz) my to other media
 
 #### More for macOS:
 

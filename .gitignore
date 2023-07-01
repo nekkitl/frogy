@@ -3,4 +3,5 @@
 dnscan
 output
 *.txtls
+*.cfg
 *.DS_Store

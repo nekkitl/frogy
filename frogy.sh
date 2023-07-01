@@ -1,5 +1,5 @@
 #!/bin/bash
-set FROGY_FORK_VER '0.0.1'
+cdir='0.0.1'
 
 echo -e "Frogy - macOS version $FROGY_FORK_VER by nekkitl"
 echo -e "
@@ -27,13 +27,17 @@ echo -e "
 echo -e "Enter the organisation name (E.g., Carbon Black): "
 read org
 
-cdir=`echo $org | tr '[:upper:]' '[:lower:]'| tr " " "_"`
-
-cwhois=`echo $org | tr " " "+"`
-
-
 echo -e "Enter the root domain name (eg: frogy.com): "
 read domain_name
+
+if [[ -n $org ]]; then
+        cdir=`echo $org | tr '[:upper:]' '[:lower:]'| tr " " "_"`
+        cwhois=`echo $org | tr " " "+"`
+else
+        cdir=`echo $domain_name | tr '[:upper:]' '[:lower:]'| tr " " "_"`
+        cwhois=`echo $domain_name | tr " " "+"`
+fi
+
 echo -e "Hold on! some house keeping tasks being done... "
 if [[ -d output ]]
 then
@@ -156,7 +160,6 @@ echo "www.$domain_name" | unfurl domains >> all.txtls
 echo "$domain_name" | unfurl domains >> all.txtls
 cat all.txtls | tr '[:upper:]' '[:lower:]' | unfurl domains | anew >> $cdir.master
 mv $cdir.master output/$cdir/$cdir.master
-sed -i 's/<br>/\n/g' output/$cdir/$cdir.master
 rm all.txtls
 
 #################### SUBDOMAIN RESOLVER ######################
@@ -167,7 +170,7 @@ cat output/$cdir/resolved.json | jq . | grep host | cut -d " " -f4 | cut -d '"' 
 
 ############################################################################# PERFORMING WEB DISCOVERY  ##################################################################
 
-httpx -fr -nc -silent -l live.assets -p 80,81,82,88,135,143,300,443,554,591,593,832,902,981,993,1010,1024,1311,2077,2079,2082,2083,2086,2087,2095,2096,2222,2480,3000,3128,3306,3333,3389,4243,4443,4567,4711,4712,4993,5000,5001,5060,5104,5108,5357,5432,5800,5985,6379,6543,7000,7170,7396,7474,7547,8000,8001,8008,8014,8042,8069,8080,8081,8083,8085,8088,8089,8090,8091,8118,8123,8172,8181,8222,8243,8280,8281,8333,8443,8500,8834,8880,8888,8983,9000,9043,9060,9080,9090,9091,9100,9200,9443,9800,9981,9999,10000,10443,12345,12443,16080,18091,18092,20720,28017,49152 -csv -o output/$cdir/web_intelligence.csv > /dev/null 2>&1
+httpx -fr -nc -silent -l live.assets -p 80,81,82,88,135,143,300,443,554,591,593,832,902,981,993,1010,1024,1311,2077,2079,2082,2083,2086,2087,2095,2096,2222,2480,3000,3128,3306,3333,3389,4243,4443,4567,4711,4712,4993,5000,5001,5060,5104,5108,5357,5432,5800,5985,6379,6543,7000,7170,7396,7474,7547,8000,8001,8008,8014,8042,8069,8080,8081,8083,8085,8088,8089,8090,8091,8118,8123,8172,8181,8222,8243,8280,8281,8333,8443,8500,8834,8880,8888,8983,9000,9043,9060,9080,9090,9091,9100,9200,9443,9800,9981,9999,10000,10443,12345,12443,16080,18091,18092,20720,28017,49152 -csv -o output/$cdir/web_intelligence.csv > /dev/null
 cat output/$cdir/web_intelligence.csv| cut -d ',' -f9 | grep -v 'url' | anew > output/$cdir/site_list.txtls
 
 
@@ -177,8 +180,9 @@ echo -e "Total unique root domains found: $(cat output/$cdir/rootdomain.txtls | 
 echo -e "Total unique subdomains found: $(cat output/$cdir/$cdir.master | tr '[:upper:]' '[:lower:]'| anew  | wc -l)"
 echo -e "Total unique resolved subdomains found: $(cat live.assets | wc -l) "
 echo -e "Total unique web applications found: $(cat output/$cdir/site_list.txtls | tr '[:upper:]' '[:lower:]' |anew | wc -l)"
-cat output/$cdir/rootdomain.txtls | tr '[:upper:]' '[:lower:]' | anew
-echo -e "Domain list:"
+echo -e "_"
+echo -e "Root domain: $(cat output/$cdir/rootdomain.txtls | tr '[:upper:]' '[:lower:]' | anew)"
+echo -e "DNS master list:"
 cat output/$cdir/$cdir.master
 
 ##HOUSE KEEEPING STUFF##
