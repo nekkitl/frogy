@@ -1,5 +1,18 @@
 #!/bin/bash
-cdir='0.0.1'
+################################################################ HELP #################################################################
+if [[ $1 == "-h" ]]; then
+  echo -e "Usage:"
+  echo -e "./frogy.sh [root-domain] [organisation name] [CHAOS dataset]"
+  echo -e "Example:"
+  echo -e "Root-domain is: example.com"
+  echo -e "Organisation is: Internet Assigned Numbers Authority : can be skipped."
+  echo -e "Is this program is in the CHAOS dataset? [y/n] : default NO"
+  exit 1
+fi
+
+################################################################ LETS GO ##############################################################
+
+FROGY_FORK_VER='0.0.2'
 
 echo -e "Frogy - macOS version $FROGY_FORK_VER by nekkitl"
 echo -e "
@@ -21,22 +34,28 @@ echo -e "
               ,:cclloodddxxxxxxxxxdddoollcc::.
                      .,:ccccccccccc:::.
 "
-
-############################################################### Housekeeping tasks ######################################################################
-
-echo -e "Enter the organisation name (E.g., Carbon Black): "
-read org
-
-echo -e "Enter the root domain name (eg: frogy.com): "
-read domain_name
-
-if [[ -n $org ]]; then
-        cdir=`echo $org | tr '[:upper:]' '[:lower:]'| tr " " "_"`
-        cwhois=`echo $org | tr " " "+"`
+############################################################### Input workers ######################################################################
+if [[ -n $1 ]]; then
+        domain_name=$1
+        echo -e "Root domain name: $1"
+        if [[ -n $2 ]]; then
+                echo -e "Organisation name: $2"
+                org=$2
+                cdir=`echo $org | tr '[:upper:]' '[:lower:]'| tr " " "_"`
+                cwhois=`echo $org | tr " " "+"`
+        else
+                echo -e "Without organisation name (autosearch)"
+                cdir=`echo $domain_name | tr '[:upper:]' '[:lower:]'| tr " " "_"`
+                cwhois=`echo $domain_name | tr " " "+"`
+        fi
+        
 else
-        cdir=`echo $domain_name | tr '[:upper:]' '[:lower:]'| tr " " "_"`
-        cwhois=`echo $domain_name | tr " " "+"`
+        echo -e "Enter the root domain name (eg: frogy.com): "
+        read domain_name
+        echo -e "Enter the organisation name (E.g., Carbon Black): "
+        read org
 fi
+############################################################### Housekeeping tasks ######################################################################
 
 echo -e "Hold on! some house keeping tasks being done... "
 if [[ -d output ]]
@@ -65,9 +84,16 @@ fi
 #################### CHAOS ENUMERATION ######################
 
 echo -e "Identifying Subdomains "
-
-echo -n "Is this program is in the CHAOS dataset? (y/n)? "
-read answer
+if [[ -n $3 ]]; then
+        answer=$3
+else
+        if [[ -n $1 ]]; then
+                answer="n"
+        else
+                echo -n "Is this program is in the CHAOS dataset? (y/n)? "
+                read answer
+        fi
+fi
 if [ "$answer" != "${answer#[Yy]}" ] ;then
         curl -s https://chaos-data.projectdiscovery.io/index.json -o index.json
 	chaosvar=`cat index.json | grep -w $cdir | grep "URL" | sed 's/"URL": "//;s/",//' | xargs`

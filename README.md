@@ -9,7 +9,10 @@ My goal is to create an open-source Attack Surface Management solution and make 
 ### Why was the project forked?
 
 Yo, I'm Nick, and I was disappointed by the lack of support for macOS.
-We all know that many programs, for various reasons, can be built and run fine on the Mac. Basically, this project was released for Deb-based OS, but one night I rewrote and reworked the project for full Mac compatibility.</br>
+We all know that many programs, for various reasons, can be built and run fine on the Mac. Basically, this project was released for Deb-based OS, but one night I rewrote and reworked the project for full Mac compatibility.
+
+And i think that we need faster method to provide information to frogy. See usage for details.
+
 _glhf, bruh_ 👽
 
 ---
@@ -35,6 +38,7 @@ It has multiple use cases depending your organization's processes and technology
 - :frog: Resolving subdomains to IP
 - :frog: Identifying live web applications
 - :frog: Identifying all the contextual properties of the web application such as title, content lenght, server, IP, cname, etc. (through httpx tool)
+- :cat: Added arguments for script
 
 ### Installation:
 
@@ -45,7 +49,14 @@ git clone https://github.com/nekkitl/frogy.git && cd frogy && chmod +x install.s
 ### Usage:
 
 ```sh
-./frogy.sh
+./frogy.sh [root-domain] [organisation name] [CHAOS dataset]
+        -h | Root-domain is: "example.com"
+           | Organisation is: "Internet Assigned Numbers Authority" : can be skipped.
+           | Is this program is in the CHAOS dataset? ["y"/"n"] : default NO
+
+./frogy.sh "example.com" "Internet Assigned Numbers Authority"
+           | or
+./frogy.sh example.com
 ```
 
 ## Demo:
@@ -64,7 +75,7 @@ Initial repo created - A few weeks back below date.<br/>
 
 - Date - 4 March 2019, Open-sourced
 - Date - 19 March 2021, Major changes
-- Date - 30 July 2023, reworked for macOS
+- Date - 30 July 2023, forked for macOS
 
 Logo credit - [www.designevo.com](http://designevo.com)
 
