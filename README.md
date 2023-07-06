@@ -1,5 +1,5 @@
 <h1 align="center">
-  <a href="https://github.com/nekkitl/frogy"><img src="/libs/logo.png" alt="frogy" height=450px></a>
+  <a href="https://github.com/nekkitl/frogy"><img src="/libs/logo.png" alt="frogy"></a>
   </h1>
 <h4 align="center"> Made from 🇮🇳, forked by 🇷🇺 with ❤️</h4>
 My goal is to create an open-source Attack Surface Management solution and make it capable to find all the IPs, domains, subdomains, live websites, login portals for one company.  <br/><p style="font-size:10px; color: #555">Original text from src-git</p>
