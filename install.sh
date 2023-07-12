@@ -38,7 +38,7 @@ git clone https://github.com/rbsec/dnscan.git 2>/dev/null
 pip -qq install -r dnscan/requirements.txt 2>/dev/null 
 chmod +x frogy.sh
 echo "Enter user password to install supply libs..."
-for tool in {amass,anew,waybackurls,unfurl}
+for tool in {amass,anew,unfurl}
 do
     sudo cp ./libs/$tool/$tool /usr/local/bin/$tool
     if test -e /usr/local/bin/$tool; then
