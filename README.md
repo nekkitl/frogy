@@ -1,5 +1,5 @@
 <h1 align="center">
-  <a href="https://github.com/nekkitl/frogy"><img src="/libs/logo.png" alt="frogy"></a>
+  <a href="https://github.com/nekkitl/frogy"><img src="libs/logo.png" alt="frogy"></a>
 </h1>
 <h4 align="center"> Made from 🇮🇳, forked by 🇷🇺 with ❤️</h4>
 
