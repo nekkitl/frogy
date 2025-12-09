@@ -241,14 +241,7 @@ Logo credit - [www.designevo.com](http://designevo.com)
 ---
 
 #### Additional:
-
-![Viewers](https://profile-counter.glitch.me/nekkitl/count.svg)
-
 `nekkitl` a.k.a. **Nick Ognev**, 2023q3 - 2025q4
 
 - Read before all: [Warning / Disclaimer](https://nekkit.xyz/Disclaimer.html)
 - [Multilink](https://me.nekkit.xyz) my to other media
-
-#### More for macOS:
-
-[![ReadMe Card](https://github-readme-stats.vercel.app/api/pin/?username=nekkitl&repo=macfx)](https://github.com/nekkitl/macfx)
