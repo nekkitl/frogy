@@ -32,11 +32,10 @@ echo "Installing tools..."
 brew install httpx subfinder dnsx katana findomain python@3.11 jq go unzip whois libpcap gnu-sed 2> /dev/null
 echo "Cleanup cache..."
 brew cleanup 2>/dev/null
-echo "Installing requirements..."
+echo "Installing Python requirements..."
 python3 -m pip install --upgrade pip 2>/dev/null
-git clone https://github.com/rbsec/dnscan.git 2>/dev/null 
-pip -qq install -r dnscan/requirements.txt 2>/dev/null 
-chmod +x frogy.sh
+
+chmod +x frogy.py
 echo "Enter user password to install supply libs..."
 for tool in {amass,anew,waybackurls,unfurl}
 do
@@ -47,3 +46,7 @@ do
         echo -e "$tool not installed. Please chk permissons and try again."
     fi
 done
+
+echo ""
+echo "Installation complete!"
+echo "Run: python3 frogy.py example.com"

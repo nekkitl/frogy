@@ -4987,3 +4987,6 @@ vo
 www.msk
 pc2
 schools
+nextcloud
+nc
+tfs

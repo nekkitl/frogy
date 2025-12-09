@@ -5,3 +5,10 @@ output
 *.txtls
 *.cfg
 *.DS_Store
+*.txtls
+/output/*
+/memory-bank
+/.cursor
+/__pycache__
+/live.assets
+/resume.cfg
