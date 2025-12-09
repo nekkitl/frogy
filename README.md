@@ -5,8 +5,6 @@
 
 **Frogy** - Open-source Attack Surface Management solution for discovering all IPs, domains, subdomains, live websites, and login portals for a company. Fully rewritten in Python for macOS with improved reliability and user experience.
 
-<br/><p style="font-size:10px; color: #555">Original text from src-git</p>
-
 ---
 
 ## 🆕 Version 0.0.3 - Major Update
